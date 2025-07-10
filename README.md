@@ -72,3 +72,12 @@ tasks.forEach(task => {
   if (task.assignedTo) counts[task.assignedTo]++;
 });
 const leastBusy = Object.keys(counts).reduce((a, b) => counts[a] < counts[b] ? a : b);
+
+
+---
+
+✅ You can now:
+- Upload these two files into your GitHub repo or assignment folder.
+- Zip everything (frontend, backend, README, Logic_Document) and submit.
+
+Let me know if you'd like a ZIP with these two docs added!
