@@ -46,3 +46,29 @@ Built with **MongoDB, Express, React, Node.js, and Socket.IO**.
 cd backend
 npm install
 node server.js
+
+---
+
+## 📄 `Logic_Document.md`
+
+```markdown
+# Logic Documentation – Collaborative Real-Time To-Do Board
+
+## Smart Assign Logic
+- On clicking “Smart Assign,” the backend fetches all users and all incomplete tasks.
+- It counts how many tasks are currently assigned to each user.
+- The user with the fewest incomplete tasks is selected.
+- The task is reassigned to that user.
+- The update is broadcast via Socket.IO to all clients.
+
+### Key Function: `smartAssign` in taskController.js
+
+```js
+const users = await User.find();
+const tasks = await Task.find({ status: { $ne: "Done" } });
+const counts = {};
+users.forEach(user => counts[user._id] = 0);
+tasks.forEach(task => {
+  if (task.assignedTo) counts[task.assignedTo]++;
+});
+const leastBusy = Object.keys(counts).reduce((a, b) => counts[a] < counts[b] ? a : b);
