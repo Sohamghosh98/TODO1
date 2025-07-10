@@ -1,0 +1,85 @@
+.task-card {
+  background: #333;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: transform 0.3s ease, background-color 0.3s;
+}
+.task-card:active {
+  transform: rotateY(10deg) scale(1.03);
+  background-color: #444;
+}
+.board { display: flex; flex-wrap: wrap; padding: 1rem; gap: 1rem; }
+.column { flex: 1; min-width: 200px; }
+@media (max-width: 600px) {
+  .board {
+    flex-direction: column;
+  }
+  .log-panel {
+    order: -1;
+  }
+}
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background: #111;
+  color: white;
+}
+
+.login-page form {
+  max-width: 300px;
+  margin: 5rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input, button {
+  padding: 0.5rem;
+}
+
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.column {
+  flex: 1;
+  min-width: 200px;
+  background: #222;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.task-card {
+  background: #333;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: transform 0.3s ease, background-color 0.3s;
+}
+
+.task-card:active {
+  transform: rotateY(10deg) scale(1.03);
+  background-color: #444;
+}
+
+.log-panel {
+  flex: 1;
+  background: #1a1a1a;
+  padding: 1rem;
+  border-radius: 8px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+@media (max-width: 600px) {
+  .board {
+    flex-direction: column;
+  }
+  .log-panel {
+    order: -1;
+  }
+}
